@@ -1,10 +1,10 @@
 export class WfhRequest {
 
     constructor(
-        public fromDate: string,
-        public toDate: string,
-        public fromTime: string,
-        public toTime: string
+        public fromDate: any,
+        public toDate: any,
+        public fromTime: any,
+        public toTime: any
     ) { }
 
 }

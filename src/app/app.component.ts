@@ -5,6 +5,11 @@ import { throwError } from 'rxjs';
 import { WfhService } from './wfh.service';
 import { WfhRequest } from './wfhrequest';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormControl } from '@angular/forms';
+import * as _moment from 'moment';
+import { default as _rollupMoment } from 'moment';
+
+const moment = _rollupMoment || _moment;
 
 @Component({
   selector: 'app-root',
@@ -12,16 +17,15 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+
   public title: string = 'Work from Home';
-  public defaultFromTime: string = '08:00';
-  public defaultToTime: string = '17:15';
-  public currentDate: string = 'yyyy-MM-dd';
+
+  fromDate = new FormControl(moment.utc());
+  toDate = new FormControl(moment.utc());
+  fromTime = new FormControl('08:00');
+  toTime = new FormControl('17:15');
 
   constructor(private wfhService: WfhService, private _snackBar: MatSnackBar) { }
-
-  ngOnInit() {
-    this.getCurrentDate();
-  }
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
@@ -33,22 +37,12 @@ export class AppComponent {
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 
-  private getCurrentDate(): void {
-    this.wfhService.getCurrentDate().pipe(
-      catchError(this.handleError)
-    ).subscribe((response: string) => {
-      this.currentDate = response;
-    });
-  }
-
-  public onClickSubmit(wfhRequestForm: any): void {
-    console.log(wfhRequestForm);
-
+  public onClickSubmit(): void {
     let wfhRequest = new WfhRequest(
-      wfhRequestForm.fromDate,
-      wfhRequestForm.toDate,
-      wfhRequestForm.fromTime,
-      wfhRequestForm.toTime,
+      this.fromDate.value?.toISOString().substring(0, 10),
+      this.toDate.value?.toISOString().substring(0, 10),
+      this.fromTime.value,
+      this.toTime.value,
     );
 
     this.wfhService.submitRequest(wfhRequest).pipe(
