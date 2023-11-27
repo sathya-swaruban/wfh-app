@@ -12,12 +12,8 @@ export class WfhService {
 
   constructor(private http: HttpClient) { }
 
-  public getCurrentDate(): Observable<string> {
-    return this.http.get<string>(`${this.apiServerUrl}/current_date`);
-  }
-
   public submitRequest(wfhRequest: WfhRequest): Observable<WfhRequest> {
-    console.log(wfhRequest);
     return this.http.post<WfhRequest>(`${this.apiServerUrl}/submit`, wfhRequest);
   }
+
 }

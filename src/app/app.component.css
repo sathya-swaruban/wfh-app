@@ -19,13 +19,8 @@ mat-card-title {
     text-align: center;
 }
 
-p {
-    font-weight: 800;
-    color: red;
-}
-
-code {
-    color: red;
+.mat-divider {
+    border-top-color: rgb(19, 78, 181);
 }
 
 table {

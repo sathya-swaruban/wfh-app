@@ -4,13 +4,15 @@
       <mat-card-header>
         <mat-card-title> {{title}} </mat-card-title>
       </mat-card-header>
+      <mat-divider color="primary"></mat-divider>
       <mat-card-content>
         <table>
           <tr>
             <td>
               <mat-form-field>
                 <mat-label>From Date</mat-label>
-                <input name="fromDate" id="fromDate" matInput [matDatepicker]="fromDatePicker" [formControl]="fromDate">
+                <input id="fromDate" name="fromDate" matInput
+                  [matDatepicker]="fromDatePicker" [formControl]="fromDate">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="fromDatePicker" />
                 <mat-datepicker #fromDatePicker></mat-datepicker>
@@ -19,7 +21,8 @@
             <td>
               <mat-form-field>
                 <mat-label>To Date</mat-label>
-                <input name="toDate" id="toDate" matInput [matDatepicker]="toDatePicker" [formControl]="toDate">
+                <input id="toDate" name="toDate" matInput
+                  [matDatepicker]="toDatePicker" [formControl]="toDate">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="toDatePicker" />
                 <mat-datepicker #toDatePicker></mat-datepicker>
@@ -30,14 +33,16 @@
             <td style="text-align: right;">
               <mat-form-field>
                 <mat-label>From Time</mat-label>
-                <input type="time" matInput name="fromTime" id="fromTime" [formControl]="fromTime">
+                <input id="fromTime" name="fromTime" type="time" matInput
+                  [formControl]="fromTime">
                 <mat-hint>HH:MM</mat-hint>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field>
                 <mat-label>To Time</mat-label>
-                <input type="time" matInput name="toTime" id="toTime" [formControl]="toTime">
+                <input id="toTime" name="toTime" type="time" matInput
+                  [formControl]="toTime">
                 <mat-hint>HH:MM</mat-hint>
               </mat-form-field>
             </td>
