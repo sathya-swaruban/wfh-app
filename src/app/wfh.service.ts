@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { WfhRequest } from './wfhrequest';
 
@@ -17,7 +16,7 @@ export class WfhService {
     return this.http.get<string>(`${this.apiServerUrl}/current_date`);
   }
 
-  public submitRequest(wfhRequest: NgForm): Observable<WfhRequest> {
+  public submitRequest(wfhRequest: WfhRequest): Observable<WfhRequest> {
     console.log(wfhRequest);
     return this.http.post<WfhRequest>(`${this.apiServerUrl}/submit`, wfhRequest);
   }

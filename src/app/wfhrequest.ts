@@ -1,7 +1,10 @@
-export interface WfhRequest {
-    id: string;
-    fromDate: string;
-    toDate: string;
-    fromTime: string;
-    toTime: string;
+export class WfhRequest {
+
+    constructor(
+        public fromDate: string,
+        public toDate: string,
+        public fromTime: string,
+        public toTime: string
+    ) { }
+
 }

@@ -1,6 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { WfhService } from './wfh.service';
@@ -42,11 +41,19 @@ export class AppComponent {
     });
   }
 
-  public onClickSubmit(wfhRequestForm: NgForm): void {
-    console.log(wfhRequestForm.value);
-    this.wfhService.submitRequest(wfhRequestForm.value).pipe(
+  public onClickSubmit(wfhRequestForm: any): void {
+    console.log(wfhRequestForm);
+
+    let wfhRequest = new WfhRequest(
+      wfhRequestForm.fromDate,
+      wfhRequestForm.toDate,
+      wfhRequestForm.fromTime,
+      wfhRequestForm.toTime,
+    );
+
+    this.wfhService.submitRequest(wfhRequest).pipe(
       catchError(this.handleError)
-    ).subscribe((response: WfhRequest) => {
+    ).subscribe(() => {
       this._snackBar.open("Request submitted!", "Close", {
         duration: 3000
       });

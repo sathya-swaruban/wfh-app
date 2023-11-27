@@ -1,57 +1,58 @@
 <main>
-  <form #wfhRequestForm="ngForm" (ngSubmit)="onClickSubmit(wfhRequestForm)">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title> {{title}} </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <table>
-        <tr>
-          <td>
-            <mat-form-field>
-              <mat-label>From Date</mat-label>
-              <input [(ngModel)]="currentDate" name="fromDate" id="fromDate" matInput [matDatepicker]="fromDatePicker">
-              <mat-hint>MM/DD/YYYY</mat-hint>
-              <mat-datepicker-toggle matIconSuffix [for]="fromDatePicker" />
-              <mat-datepicker #fromDatePicker></mat-datepicker>
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field>
-              <mat-label>To Date</mat-label>
-              <input [(ngModel)]="currentDate" name="toDate" id="toDate" matInput [matDatepicker]="toDatePicker">
-              <mat-hint>MM/DD/YYYY</mat-hint>
-              <mat-datepicker-toggle matIconSuffix [for]="toDatePicker" />
-              <mat-datepicker #toDatePicker></mat-datepicker>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td style="text-align: right;">
-            <mat-form-field>
-              <mat-label>From Time</mat-label>
-              <input type="time" [(ngModel)]="defaultFromTime" matInput name="fromTime" id="fromTime">
-              <mat-hint>HH:MM</mat-hint>
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field>
-              <mat-label>To Time</mat-label>
-              <input type="time" [(ngModel)]="defaultToTime" matInput name="toTime" id="toTime">
-              <mat-hint>HH:MM</mat-hint>
-            </mat-form-field>
-          </td>
-        </tr>
-      </table>
-    </mat-card-content>
-    <mat-card-actions>
-      <button id="submitButton" type="submit" mat-raised-button color="primary">Submit</button>
-    </mat-card-actions>
-    <mat-card-footer>
-      <p>DEBUG:</p>
-      <code>Selected values: {{wfhRequestForm.value | json}}</code>
-    </mat-card-footer>
-  </mat-card>
+  <form #wfhRequestForm="ngForm" (ngSubmit)="onClickSubmit(wfhRequestForm.value)">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title> {{title}} </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <table>
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-label>From Date</mat-label>
+                <input [(ngModel)]="currentDate" name="fromDate" id="fromDate" matInput
+                  [matDatepicker]="fromDatePicker">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="fromDatePicker" />
+                <mat-datepicker #fromDatePicker></mat-datepicker>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <mat-label>To Date</mat-label>
+                <input [(ngModel)]="currentDate" name="toDate" id="toDate" matInput [matDatepicker]="toDatePicker">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="toDatePicker" />
+                <mat-datepicker #toDatePicker></mat-datepicker>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: right;">
+              <mat-form-field>
+                <mat-label>From Time</mat-label>
+                <input type="time" [(ngModel)]="defaultFromTime" matInput name="fromTime" id="fromTime">
+                <mat-hint>HH:MM</mat-hint>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <mat-label>To Time</mat-label>
+                <input type="time" [(ngModel)]="defaultToTime" matInput name="toTime" id="toTime">
+                <mat-hint>HH:MM</mat-hint>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </mat-card-content>
+      <mat-card-actions>
+        <button id="submitButton" type="submit" mat-raised-button color="primary">Submit</button>
+      </mat-card-actions>
+      <mat-card-footer>
+        <p>DEBUG:</p>
+        <code>Selected values: {{wfhRequestForm.value | json}}</code>
+      </mat-card-footer>
+    </mat-card>
   </form>
 </main>
 
