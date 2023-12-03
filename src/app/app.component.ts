@@ -6,7 +6,7 @@ import { WfhService } from './wfh.service';
 import { WfhRequest } from './wfhrequest';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormControl } from '@angular/forms';
-import * as _moment from 'moment';
+import { default as _moment } from 'moment';
 import { default as _rollupMoment } from 'moment';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
