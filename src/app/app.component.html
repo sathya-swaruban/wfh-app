@@ -11,7 +11,7 @@
             <td>
               <mat-form-field>
                 <mat-label>From Date</mat-label>
-                <input id="fromDate" name="fromDate" matInput [matDatepicker]="fromDatePicker" [formControl]="fromDate">
+                <input id="fromDate" name="fromDate" matInput [matDatepicker]="fromDatePicker" [formControl]="fromDate" [max]="today">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="fromDatePicker" />
                 <mat-datepicker #fromDatePicker></mat-datepicker>
@@ -20,7 +20,7 @@
             <td>
               <mat-form-field>
                 <mat-label>To Date</mat-label>
-                <input id="toDate" name="toDate" matInput [matDatepicker]="toDatePicker" [formControl]="toDate">
+                <input id="toDate" name="toDate" matInput [matDatepicker]="toDatePicker" [formControl]="toDate" [max]="today">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="toDatePicker" />
                 <mat-datepicker #toDatePicker></mat-datepicker>

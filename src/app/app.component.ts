@@ -30,6 +30,8 @@ export class AppComponent {
   fromTime = new FormControl('08:00');
   toTime = new FormControl('17:15');
 
+  today = new Date(); 
+
   constructor(private wfhService: WfhService, private _snackBar: MatSnackBar, private dialog: MatDialog) { }
 
   openDialog(error: HttpErrorResponse): any {
