@@ -11,8 +11,7 @@
             <td>
               <mat-form-field>
                 <mat-label>From Date</mat-label>
-                <input id="fromDate" name="fromDate" matInput
-                  [matDatepicker]="fromDatePicker" [formControl]="fromDate">
+                <input id="fromDate" name="fromDate" matInput [matDatepicker]="fromDatePicker" [formControl]="fromDate">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="fromDatePicker" />
                 <mat-datepicker #fromDatePicker></mat-datepicker>
@@ -21,8 +20,7 @@
             <td>
               <mat-form-field>
                 <mat-label>To Date</mat-label>
-                <input id="toDate" name="toDate" matInput
-                  [matDatepicker]="toDatePicker" [formControl]="toDate">
+                <input id="toDate" name="toDate" matInput [matDatepicker]="toDatePicker" [formControl]="toDate">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="toDatePicker" />
                 <mat-datepicker #toDatePicker></mat-datepicker>
@@ -33,16 +31,14 @@
             <td style="text-align: right;">
               <mat-form-field>
                 <mat-label>From Time</mat-label>
-                <input id="fromTime" name="fromTime" type="time" matInput
-                  [formControl]="fromTime">
+                <input id="fromTime" name="fromTime" type="time" matInput [formControl]="fromTime">
                 <mat-hint>HH:MM</mat-hint>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field>
                 <mat-label>To Time</mat-label>
-                <input id="toTime" name="toTime" type="time" matInput
-                  [formControl]="toTime">
+                <input id="toTime" name="toTime" type="time" matInput [formControl]="toTime">
                 <mat-hint>HH:MM</mat-hint>
               </mat-form-field>
             </td>
@@ -52,10 +48,6 @@
       <mat-card-actions>
         <button id="submitButton" type="submit" mat-raised-button color="primary">Submit</button>
       </mat-card-actions>
-      <!-- <mat-card-footer>
-        <p>DEBUG:</p>
-        <code> {{fromDate.value}} | {{toDate.value}} | {{fromTime.value}} | {{toTime.value}} </code>
-      </mat-card-footer> -->
     </mat-card>
   </form>
 </main>
