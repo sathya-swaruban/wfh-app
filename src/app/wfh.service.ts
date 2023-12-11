@@ -8,7 +8,7 @@ import { WfhRequest } from './wfhrequest';
 })
 export class WfhService {
 
-  private apiServerUrl = 'http://localhost:8080';
+  private apiServerUrl = 'http://44.207.7.200:8080';
 
   constructor(private http: HttpClient) { }
 
